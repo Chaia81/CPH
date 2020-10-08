@@ -1,5 +1,7 @@
 package Models;
 
+import com.sun.tools.corba.se.idl.constExpr.Or;
+
 import java.util.Date;
 
 public class Arrival extends Flight {
@@ -41,8 +43,8 @@ public class Arrival extends Flight {
     @Override
     public String toString() {
         return "Arrival{" +
-                "Origin='" + Origin + '\'' +
-                ", flyId=" + flyId +
+                "flyId'" + flyId + '\'' +
+                ", origin=" + Origin +
                 ", flyType='" + flyType + '\'' +
                 ", size='" + size + '\'' +
                 ", date=" + date +
