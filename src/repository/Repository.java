@@ -10,7 +10,10 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 
@@ -36,7 +39,13 @@ public class Repository {
             while (rs.next()) {
                 Arrival tempArrival = new Arrival();
                 tempArrival.setFlyId(rs.getInt(1));
-                tempArrival.setDate(rs.getString(2));
+                try {
+                    Date date1 = new SimpleDateFormat("MM/dd/yyyy").parse(rs.getString(2));
+                    tempArrival.setDate(date1);
+                }
+                catch(ParseException parseException){
+
+                }
                 tempArrival.setAoD(rs.getString(3));
                 tempArrival.setRouteNumber(rs.getString(4));
                 tempArrival.setTid(rs.getString(5));
@@ -76,7 +85,7 @@ public class Repository {
                 tempDeparture.setDestination(rs.getString(3));
                 tempDeparture.setAoD(rs.getString(4));
                 tempDeparture.setTid(rs.getString(5));
-                tempDeparture.setDate(rs.getString(6));
+                tempDeparture.setDate(rs.getDate(6));
                 tempDeparture.setRouteNumber(rs.getString(7));
                 tempDeparture.setSize(rs.getString(8));
 

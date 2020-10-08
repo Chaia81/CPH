@@ -9,7 +9,7 @@ public class Departure extends Flight {
     String Destination;
 
 
-    public Departure(int flyId, String flyType, String size, String date, String tid, String aoD, String routeNumber, String STD, String destination) {
+    public Departure(int flyId, String flyType, String size, Date date, String tid, String aoD, String routeNumber, String STD, String destination) {
         super(flyId, flyType, size, date, tid, aoD, routeNumber);
         this.STD = STD;
         Destination = destination;

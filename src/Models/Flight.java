@@ -7,12 +7,12 @@ public class Flight {
     int flyId;
     String flyType;
     String size;
-    String date;
+    Date date;
     String tid;
     String AoD;
     String RouteNumber;
 
-    public Flight(int flyId, String flyType, String size, String date, String tid, String aoD, String routeNumber) {
+    public Flight(int flyId, String flyType, String size, Date date, String tid, String aoD, String routeNumber) {
         this.flyId = flyId;
         this.flyType = flyType;
         this.size = size;
@@ -61,11 +61,11 @@ public class Flight {
         this.size = size;
     }
 
-    public String getDate() {
+    public Date getDate() {
         return date;
     }
 
-    public void setDate(String date) {
+    public void setDate(Date date) {
         this.date = date;
     }
 

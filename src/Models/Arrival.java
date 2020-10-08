@@ -1,5 +1,7 @@
 package Models;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class Arrival extends Flight {
@@ -7,7 +9,7 @@ public class Arrival extends Flight {
     String STA;
     String Origin;
 
-    public Arrival(int flyId, String flyType, String size, String date, String tid, String aoD, String routeNumber, String STA, String origin) {
+    public Arrival(int flyId, String flyType, String size, Date date, String tid, String aoD, String routeNumber, String STA, String origin) {
         super(flyId, flyType, size, date, tid, aoD, routeNumber);
         this.STA = STA;
         Origin = origin;
@@ -40,12 +42,13 @@ public class Arrival extends Flight {
 
     @Override
     public String toString() {
+        DateFormat outputFormatter = new SimpleDateFormat("dd/MM/yyyy");
         return "Arrival: " +
                 "Origin='" + Origin + '\'' +
                 ", flyId=" + flyId +
                 ", flyType='" + flyType + '\'' +
                 ", size='" + size + '\'' +
-                ", date=" + date +
+                ", date=" + outputFormatter.format(date) + '\'' +
                 ", tid='" + tid + '\'' +
                 ", AoD='" + AoD + '\'' +
                 ", RouteNumber='" + RouteNumber + '\'' +
