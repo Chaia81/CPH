@@ -7,17 +7,18 @@ public class Flight {
     int flyId;
     String flyType;
     String size;
-    Date date;
-    String hour;
+
+    String date;
+    String tid;
     String AoD;
     String RouteNumber;
 
-    public Flight(int flyId, String flyType, String size, Date date, String hour, String aoD, String routeNumber) {
+    public Flight(int flyId, String flyType, String size, String date, String tid, String aoD, String routeNumber) {
         this.flyId = flyId;
         this.flyType = flyType;
         this.size = size;
         this.date = date;
-        this.hour = hour;
+        this.tid = tid;
         AoD = aoD;
         RouteNumber = routeNumber;
     }
@@ -53,11 +54,11 @@ public class Flight {
         this.size = size;
     }
 
-    public Date getDate() {
+    public String getDate() {
         return date;
     }
 
-    public void setDate(Date date) {
+    public void setDate(String date) {
         this.date = date;
     }
 
@@ -75,5 +76,13 @@ public class Flight {
 
     public void setRouteNumber(String routeNumber) {
         RouteNumber = routeNumber;
+    }
+
+    public String getTid() {
+        return tid;
+    }
+
+    public void setTid(String tid) {
+        this.tid = tid;
     }
 }

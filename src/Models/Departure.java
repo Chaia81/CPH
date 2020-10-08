@@ -9,8 +9,8 @@ public class Departure extends Flight {
     String Destination;
 
 
-    public Departure(int flyId, String flyType, String size, Date date, String hour, String aoD, String routeNumber, String STD, String destination) {
-        super(flyId, flyType, size, date, hour, aoD, routeNumber);
+    public Departure(int flyId, String flyType, String size, String date, String tid, String aoD, String routeNumber, String STD, String destination) {
+        super(flyId, flyType, size, date, tid, aoD, routeNumber);
         this.STD = STD;
         Destination = destination;
     }
@@ -44,7 +44,7 @@ public class Departure extends Flight {
                 ", flyType='" + flyType + '\'' +
                 ", size='" + size + '\'' +
                 ", date=" + date +
-                ", hour='" + hour + '\'' +
+                ", tid='" + tid + '\'' +
                 ", AoD='" + AoD + '\'' +
                 ", RouteNumber='" + RouteNumber + '\'' +
                 '}';

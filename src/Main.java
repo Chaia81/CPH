@@ -8,8 +8,8 @@ public class Main {
         DatabaseConnectionManager databaseConnectionManager = new DatabaseConnectionManager();
         Repository repository = new Repository();
 
-        //repository.createArrivalList();
-        // repository.createDepartureList();
+        repository.createArrivalList();
+        //repository.createDepartureList();
         // repository.createGateList();
 
 
