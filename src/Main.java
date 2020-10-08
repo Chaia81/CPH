@@ -1,3 +1,4 @@
+import Models.Flight;
 import repository.Repository;
 import util.DatabaseConnectionManager;
 
@@ -8,9 +9,10 @@ public class Main {
         DatabaseConnectionManager databaseConnectionManager = new DatabaseConnectionManager();
         Repository repository = new Repository();
 
-        repository.createArrivalList();
+      repository.createArrivalList();
         //repository.createDepartureList();
-        // repository.createGateList();
+        //repository.createGateList();
+
 
 
     }

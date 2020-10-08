@@ -7,7 +7,6 @@ public class Flight {
     int flyId;
     String flyType;
     String size;
-
     String date;
     String tid;
     String AoD;
@@ -28,6 +27,14 @@ public class Flight {
     }
 
     public Flight(int flyId, String flyType, String size, Date date, Character aoD, String routeNumber) {
+    }
+
+    public String getTid(int i) {
+        return tid;
+    }
+
+    public void setTid(String tid) {
+        this.tid = tid;
     }
 
     public int getFlyId() {
@@ -76,13 +83,5 @@ public class Flight {
 
     public void setRouteNumber(String routeNumber) {
         RouteNumber = routeNumber;
-    }
-
-    public String getTid() {
-        return tid;
-    }
-
-    public void setTid(String tid) {
-        this.tid = tid;
     }
 }

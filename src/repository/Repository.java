@@ -2,6 +2,7 @@ package repository;
 
 import Models.Arrival;
 import Models.Departure;
+import Models.Flight;
 import Models.Gate;
 import util.DatabaseConnectionManager;
 
@@ -26,22 +27,25 @@ public class Repository {
     ArrayList<Arrival> arrivalList = new ArrayList<>();
 
 
-   public List<Arrival> createArrivalList() {
+    public List<Arrival> createArrivalList() {
         ArrayList<Arrival> allArrivals = new ArrayList<>();
         try {
-            PreparedStatement readAllArrivals = conn.prepareStatement("SELECT fly_id, fly.fly_type, destination_origin, arrOrDep, tid, dato, rute_nummer, size FROM fly INNER JOIN koder on fly.fly_type = koder.fly_type WHERE arrOrDep = ? ");
+            PreparedStatement readAllArrivals = conn.prepareStatement("SELECT fly_id, dato, arr_and_dep, rute_nr, tid, fly.fly_type, org_des, size FROM fly INNER JOIN koder on fly.fly_type = koder.fly_type WHERE arr_and_dep = ? ");
             readAllArrivals.setString(1, "A");
             ResultSet rs = readAllArrivals.executeQuery();
             while (rs.next()) {
                 Arrival tempArrival = new Arrival();
                 tempArrival.setFlyId(rs.getInt(1));
-                tempArrival.setFlyType(rs.getString(2));
-                tempArrival.setOrigin(rs.getString(3));
-                tempArrival.setAoD(rs.getString(4));
-                tempArrival.setSTA(rs.getString(5));
-                tempArrival.setDate(rs.getString(6));
-                tempArrival.setRouteNumber(rs.getString(7));
+                tempArrival.setDate(rs.getString(2));
+                tempArrival.setAoD(rs.getString(3));
+                tempArrival.setRouteNumber(rs.getString(4));
+                tempArrival.setTid(rs.getString(5));
+                tempArrival.setFlyType(rs.getString(6));
+                tempArrival.setOrigin(rs.getString(7));
                 tempArrival.setSize(rs.getString(8));
+
+
+
 
                 arrivalList.add(tempArrival);
             }
@@ -50,43 +54,14 @@ public class Repository {
             }
             System.out.println(arrivalList.size());
 
+
+
         } catch (SQLException e) {
             e.printStackTrace();
         }
         return arrivalList;
+
     }
-
-/*
-    public List<Arrival> creatDagsliste() {
-        ArrayList<Arrival> allArrivals = new ArrayList<>();
-        try {
-            PreparedStatement readAllArrivals = conn.prepareStatement("SELECT fly_id, fly.fly_type, destination_origin, arrOrDep, tid, dato, rute_nummer, size FROM fly INNER JOIN koder on fly.fly_type = koder.fly_type WHERE arrOrDep = ? ");
-            readAllArrivals.setString(1, "A");
-            ResultSet rs = readAllArrivals.executeQuery();
-            while (rs.next()) {
-                Arrival tempArrival = new Arrival();
-                tempArrival.setFlyId(rs.getInt(1));
-                tempArrival.setFlyType(rs.getString(2));
-                tempArrival.setOrigin(rs.getString(3));
-                tempArrival.setAoD(rs.getString(4));
-                tempArrival.setSTA(rs.getString(5));
-                tempArrival.setDate(rs.getString(6));
-                tempArrival.setRouteNumber(rs.getString(7));
-                tempArrival.setSize(rs.getString(8));
-
-                arrivalList.add(tempArrival);
-            }
-            for(Arrival a: arrivalList){
-                System.out.println(a);
-            }
-            System.out.println(arrivalList.size());
-
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return arrivalList;
-    }*/
-
 
     public List<Arrival> createDepartureList() {
         ArrayList<Departure> departureList = new ArrayList<>();
