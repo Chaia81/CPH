@@ -7,8 +7,8 @@ public class Arrival extends Flight {
     String STA;
     String Origin;
 
-    public Arrival(int flyId, String flyType, String size, Date date, String hour, String aoD, String routeNumber, String STA, String origin) {
-        super(flyId, flyType, size, date, hour, aoD, routeNumber);
+    public Arrival(int flyId, String flyType, String size, String date, String tid, String aoD, String routeNumber, String STA, String origin) {
+        super(flyId, flyType, size, date, tid, aoD, routeNumber);
         this.STA = STA;
         Origin = origin;
     }
@@ -46,7 +46,7 @@ public class Arrival extends Flight {
                 ", flyType='" + flyType + '\'' +
                 ", size='" + size + '\'' +
                 ", date=" + date +
-                ", hour='" + hour + '\'' +
+                ", tid='" + tid + '\'' +
                 ", AoD='" + AoD + '\'' +
                 ", RouteNumber='" + RouteNumber + '\'' +
                 '}';
